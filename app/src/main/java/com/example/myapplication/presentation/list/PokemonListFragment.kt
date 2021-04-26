@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,8 +45,6 @@ class PokemonListFragment : Fragment() {
         }
 
 
-
-
         Singletons.pokeApi.getPokemonList().enqueue(object: Callback<PokemonListResponse>{
             override fun onFailure(call: Call<PokemonListResponse>, t: Throwable) {
                 //TODO("Not yet implemented")
@@ -59,7 +58,9 @@ class PokemonListFragment : Fragment() {
             }
          })
     }
-    private fun onClickedPokemon(pokemon : Pokemon) {
-       findNavController().navigate(R.id.navigateToPokemonDetailFragment)
+    private fun onClickedPokemon(id : Int) {
+       findNavController().navigate(R.id.navigateToPokemonDetailFragment, bundleOf("" +
+               "pokemonId" to (id+1)
+       ))
     }
 }

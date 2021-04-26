@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.myapplication.R
 import com.example.myapplication.presentation.Singletons
 import com.example.myapplication.presentation.api.PokemonDetailResponse
@@ -19,6 +20,8 @@ import retrofit2.Response
 class PokemonDetailFragment : Fragment() {
 
     private lateinit var textViewName: TextView
+
+
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -30,11 +33,13 @@ class PokemonDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         textViewName = view.findViewById(R.id.pokemon_detail_name)
+
         callApi()
     }
 
     private fun callApi() {
-        Singletons.pokeApi.getPokemonDetail("1").enqueue(object : Callback<PokemonDetailResponse>{
+        val id = arguments?.getInt("pokemonId") ?: -1
+        Singletons.pokeApi.getPokemonDetail(id).enqueue(object : Callback<PokemonDetailResponse>{
             override fun onFailure(call: Call<PokemonDetailResponse>,
                                    t: Throwable)
             {
