@@ -53,7 +53,7 @@ showList(list)
     }
 
     private fun getListFromCache(): List<Pokemon> {
-        sharedPref.
+        //sharedPref
         //TODO
     }
 
