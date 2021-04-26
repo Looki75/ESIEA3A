@@ -7,10 +7,21 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.MyApplication.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_anchor="@+id/appBarLayout"
+            app:layout_anchorGravity="center"
+            app:popupTheme="@style/Theme.MyApplication.PopupOverlay" />
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -18,19 +29,11 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="91dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:layout_anchor="@+id/appBarLayout"
-        app:layout_anchorGravity="center"
-        app:popupTheme="@style/Theme.MyApplication.PopupOverlay" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
