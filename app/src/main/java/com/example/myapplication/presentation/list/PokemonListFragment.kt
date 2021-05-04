@@ -27,8 +27,8 @@ class PokemonListFragment : Fragment() {
     private val sharedPref = activity?.getSharedPreferences("app", Context.MODE_PRIVATE)
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_pokemon_list, container, false)
@@ -45,16 +45,17 @@ class PokemonListFragment : Fragment() {
         }
 
         val list = getListFromCache()
-        if(list.isEmpty()) {
+        if (list.isEmpty()) {
             callApi()
         } else {
-showList(list)
+            showList(list)
         }
     }
 
     private fun getListFromCache(): List<Pokemon> {
-        //sharedPref
-        //TODO
+    //sharedPref
+        TODO("Not yet implemented")
+
     }
 
     private fun saveListIntoCache() {
@@ -86,7 +87,7 @@ showList(list)
     }
 
     private fun onClickedPokemon(id : Int) {
-       findNavController().navigate(R.id.navigateToPokemonDetailFragment, bundleOf("" +
+       findNavController().navigate(R.id.navigateToPokemonDetailFragment, bundleOf(
                "pokemonId" to (id + 1)
        ))
     }
