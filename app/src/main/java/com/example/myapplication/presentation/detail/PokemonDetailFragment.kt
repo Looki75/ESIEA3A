@@ -50,7 +50,7 @@ class PokemonDetailFragment : Fragment() {
                                     response: Response<PokemonDetailResponse>
             ) {
                 if(response.isSuccessful && response.body() != null) {
-                    textViewName.text = response.body()!!.name
+                    textViewName.text = response.body()!!.namee
                 }
             }
         })
