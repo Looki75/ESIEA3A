@@ -19,10 +19,9 @@ class Singletons {
         val pokeApi: PokeApi = Retrofit.Builder()
                 .baseUrl("https://pokeapi.co/api/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
-                 .client(okttpClient)
+                .client(okttpClient)
                 .build()
                 .create(PokeApi::class.java)
-
 
     }
 

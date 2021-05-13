@@ -3,7 +3,6 @@ package com.example.myapplication.presentation.api
 data class PokemonDetailResponse(
         val name: String,
         val types: List<PokemonSlot>
-
 )
 
 data class PokemonSlot(
